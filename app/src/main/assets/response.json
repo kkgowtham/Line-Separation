@@ -3,66 +3,89 @@
     {
       "doc":"1",
       "docName":"docname1",
-      "Line":"Line1"
+      "Line":"Line1",
+      "status":"open"
+    },{
+      "doc":"1",
+      "docName":"docname11",
+      "Line":"Line11",
+      "status":"closed"
     },
     {
       "doc":"2",
       "docName":"docname1",
-      "Line":"Line2"
+      "Line":"Line2",
+      "status":"open"
     },
     {
       "doc":"3",
       "docName":"docname3",
-      "Line":"Line3"
+      "Line":"Line3",
+      "status":"closed"
     },
     {
       "doc":"4",
       "docName":"docname4",
-      "Line":"Line4"
+      "Line":"Line4",
+      "status":"closed"
     },
     {
       "doc":"4",
       "docName":"docname4-1",
-      "Line":"Line4-1"
+      "Line":"Line4-1",
+      "status":"closed"
     },
     {
       "doc":"5",
       "docName":"docname5",
-      "Line":"Line5"
+      "Line":"Line5",
+      "status":"closed"
     },
     {
       "doc":"6",
       "docName":"docname6",
-      "Line":"Line6"
+      "Line":"Line6",
+      "status":"closed"
     },
     {
       "doc":"6",
       "docName":"docname6-1",
-      "Line":"Line6-1"
+      "Line":"Line6-1",
+      "status":"open"
     },
     {
       "doc":"7",
       "docName":"docname7",
-      "Line":"Line7"
+      "Line":"Line7",
+      "status":"closed"
     },{
       "doc":"8",
       "docName":"docname8",
-      "Line":"Line8"
+      "Line":"Line8",
+      "status":"open"
     },
     {
       "doc":"9",
       "docName":"docname9",
-      "Line":"Line9"
+      "Line":"Line9",
+      "status":"closed"
     },
     {
       "doc":"10",
       "docName":"docname10",
-      "Line":"Line10"
+      "Line":"Line10",
+      "status":"open"
     },
     {
       "doc":"10",
       "docName":"docname10-1",
-      "Line":"Line10-1"
+      "Line":"Line10-1",
+      "status":"open"
+    },{
+      "doc":"11",
+      "docName":"docname11",
+      "Line":"Line11",
+      "status":"open"
     }
   ]
 }
