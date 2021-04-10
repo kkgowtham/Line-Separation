@@ -10,8 +10,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class InvoiceListingAdapter(val context: Activity, private var items: List<EDIJsonValidate>, val onItemClick: OnItemClickListener) : RecyclerView.Adapter<InvoiceListingAdapter.InvoiceHolder>() {
-    private var invoiceListItems: List<EDIJsonValidate> = items
+class InvoiceListingAdapter(private val context: Activity, private val invoiceListItems: List<EDIJsonValidate>, val onItemClick: OnItemClickListener) : RecyclerView.Adapter<InvoiceListingAdapter.InvoiceHolder>() {
 
     class InvoiceHolder(var view:View) : RecyclerView.ViewHolder(view) {
     }
@@ -30,9 +29,17 @@ class InvoiceListingAdapter(val context: Activity, private var items: List<EDIJs
             } else {
                 relayDoc.visibility = View.VISIBLE
             }
-        holder.view.findViewById<TextView>(R.id.documentNoTV).text= "Document No:${data.doc}"
+        val documentNoTv:TextView = holder.view.findViewById(R.id.documentNoTV)
+        val hideDocumentNo = (position!=0)&&((invoiceListItems[position]).doc == invoiceListItems[position-1].doc)
+        if (hideDocumentNo){
+            documentNoTv.visibility = View.GONE
+        }else{
+            documentNoTv.visibility = View.VISIBLE
+        }
+        documentNoTv.text= "Document No:${data.doc}"
         holder.view.findViewById<TextView>(R.id.invoiceNoTv).text= "Document Name No:${data.docName}"
         holder.view.findViewById<TextView>(R.id.descriptionTv).text= "Line:${data.Line}"
+
     }
 
     override fun getItemCount(): Int {
