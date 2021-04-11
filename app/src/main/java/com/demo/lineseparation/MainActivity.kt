@@ -2,19 +2,24 @@ package com.demo.lineseparation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 
 class MainActivity : AppCompatActivity(),InvoiceListingAdapter.OnItemClickListener {
     lateinit var recyclerView:RecyclerView
+    var list = arrayListOf<EDIJsonValidate>()
+    lateinit var adapter :InvoiceListingAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         recyclerView = findViewById(R.id.recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
-        recyclerView.adapter = getDataFromAssets()?.let { InvoiceListingAdapter(this, it,this) }
+        getDataFromAssets()?.let { list.addAll(it) }
+        adapter = InvoiceListingAdapter(this, list,this)
+        recyclerView.adapter = adapter
     }
 
     private fun getData(): ArrayList<DataModel> {
@@ -37,10 +42,13 @@ class MainActivity : AppCompatActivity(),InvoiceListingAdapter.OnItemClickListen
         }
     }
 
-    override fun unlistClick(invoiceNo: String) {
+    override fun deleteClick(data: EDIJsonValidate) {
+        list.remove(data)
+        adapter.notifyDataSetChanged()
+        Toast.makeText(this, data.docName,Toast.LENGTH_LONG).show()
     }
 
-    override fun printClick(invoiceNo: String) {
+    override fun printClick(data: EDIJsonValidate) {
 
     }
 }

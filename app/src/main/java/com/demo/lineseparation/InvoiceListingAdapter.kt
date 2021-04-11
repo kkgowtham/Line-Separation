@@ -65,7 +65,9 @@ class InvoiceListingAdapter(
         holder.view.findViewById<TextView>(R.id.invoiceNoTv).text =
             "Document Name No:${currentData.docName}"
         holder.view.findViewById<TextView>(R.id.descriptionTv).text = "Line:${currentData.Line}"
-
+        deleteBtn.setOnClickListener {
+            onItemClick.deleteClick(currentData)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -73,8 +75,8 @@ class InvoiceListingAdapter(
     }
 
     interface OnItemClickListener {
-        fun unlistClick(invoiceNo: String)
-        fun printClick(invoiceNo: String)
+        fun deleteClick(data: EDIJsonValidate)
+        fun printClick(data: EDIJsonValidate)
     }
 
     private fun isOpen(data: EDIJsonValidate): Boolean {
